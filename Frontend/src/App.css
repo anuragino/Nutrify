@@ -1,0 +1,115 @@
+/* Container */
+h1{
+  font-size: 2.9rem;
+  margin-bottom: 20px;
+  color: #267035;
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  background-color: #191A19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.inp{
+  width: 100%;
+  height: 45px;
+  font-size: 15px;
+  text-indent: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+.inp:focus {
+  box-shadow: 0 0 10px 0 #308641; 
+}
+
+
+/* Button */
+.btn {
+  padding: 14px 40px;
+  border-radius: 10px;
+  background-color: #267035 ;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease; 
+}
+/* #256732 */
+.btn:hover {
+  box-shadow: 0 0 5px 0 #277a38; 
+  font-size: 14px;
+}
+
+.link{
+  color: #256732;
+}
+
+.link:hover{
+  text-shadow: 0 0 5px #236430;
+}
+
+/* password */
+.password-input {
+  width: 100%;
+  position: relative;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.password-toggle-icon:hover {
+  color: #555; 
+}
+
+/* Not Found */
+.nf>h1{
+  color: white;
+}
+
+/* Message */
+.success{
+  background-color:  rgb(51, 225, 196);
+  color: rgb(2, 112, 75);
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.error{
+  background-color: rgb(253, 52, 82);
+  color: rgb(150, 0, 0);
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.invisible-msg{
+  width: 100%;
+  opacity: 0;
+}
+
