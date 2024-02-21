@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useState,useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { authContext } from "../contexts/authContext";
+
 
 export default function Login(){
     // see password btn
@@ -9,6 +11,9 @@ export default function Login(){
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+
+    // authContext
+    const loggedData = useContext(authContext);
 
     // user credentials
     const [userCred,setUserCred] = useState({
@@ -42,7 +47,6 @@ export default function Login(){
             }
         })
         .then((response)=>{
-            console.log(response);
 
             if(response.status===404)
             {
@@ -59,8 +63,10 @@ export default function Login(){
             return response.json();  
         })
         .then((data)=>{
+            console.log(data);
             if(data.token!==undefined){
                 localStorage.setItem("nutrify-user",JSON.stringify(data));
+                loggedData.setLoggedUser(data);
                 navigate("/track")
             }
 

@@ -132,7 +132,7 @@ app.get("/foods/:name",verifyToken,async (req,res)=>{
         const food = await foodModel.find({name:{$regex:name,$options:'i'}});
 
         if(food.length!==0){
-            res.send({message:"fetched!!",food});
+            res.send(food);
         }
         else{
             res.status(404).send({message:"food item not found"})

@@ -16,7 +16,7 @@ h1{
 }
 
 .form{
-  width: 100%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -113,3 +113,63 @@ h1{
   opacity: 0;
 }
 
+/* track food */
+.search {
+  width: 100%;
+  padding: 10px 0px;
+  /* background-color: gray; */
+  /* border-radius: 5px; */
+}
+
+.track-container{
+  align-items: flex-start;
+  justify-content: initial;
+  flex-direction: column;
+}
+
+.search-inp
+{
+  width: 100%;
+  height: 45px;
+  padding: 5px;
+  text-indent: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  transition: box-shadow 0.3s;
+}
+
+.search-inp:focus {
+  box-shadow: 0 0 10px 0 #308641; 
+}
+
+.search {
+  position: relative;
+}
+
+.search-results
+{
+  width: 100%;
+  padding: 10px 5px;
+  margin-top: 10px;
+  position:absolute;
+}
+
+.item {
+  width: 100%;
+  padding: 20px;
+  color: antiquewhite;
+  font-weight: 600;
+  background-color: #373535;
+}
+
+/* responsive */
+@media only screen and (max-width: 500px) {
+   h1{
+    font-size: 2.4rem;
+   }
+  .form{
+    width: 100%;
+  }
+}
