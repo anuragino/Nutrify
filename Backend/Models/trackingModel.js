@@ -12,6 +12,14 @@ const trackSchema = mongoose.Schema({
         ref : 'foods',
         require:true
     },
+    details:{
+        calories:Number,
+        protein:Number,
+        carbohydrates:Number,
+        fat:Number,
+        fiber:Number,
+       
+    },
     eatenDate:{
         type:String,
         default: new Date().toLocaleDateString()

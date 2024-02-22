@@ -1,11 +1,13 @@
 import { useContext, useState } from "react"
 import { authContext } from "../contexts/authContext"
-
+import Food from "./food";
+import Header from "./header"
 
 export const Track = () => {
 
     const loggedData = useContext(authContext);
     const [foodItems,setFoodItems] = useState([]);
+    const [food,setFood] = useState(null);
 
     function searchFood(event){
         // if you type smthg in search box
@@ -42,6 +44,8 @@ export const Track = () => {
 
     return (
         <section className="container track-container">
+              {/* importing Header Componet */}
+                <Header/>
               <div className="search">
                   <input type="search" className="search-inp" onChange={searchFood} placeholder="Search food item" />
 
@@ -67,6 +71,13 @@ export const Track = () => {
                   }
 
               </div>
+
+              {
+                    food!==null?
+                    <Food food = {food}/>
+                    :null
+              }
+
         </section>
     )
 }

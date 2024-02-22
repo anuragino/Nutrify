@@ -176,7 +176,7 @@ app.get("/track/:userId/:date",verifyToken,async (req,res)=>{
         let foods = await trackModel.find({userId:user,eatenDate:strDate})
                                     .populate('userId').populate('foodId')
 
-        res.send({foods});
+        res.send(foods);
     }
     catch(err){
         console.log(err);

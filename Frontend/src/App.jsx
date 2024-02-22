@@ -9,6 +9,7 @@ import NotFound from './component/notFound'
 import { Track } from './component/track'
 import { authContext } from './contexts/authContext'
 import Private from './component/Private'
+import Diet from './component/deit'
 
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/track' element={<Private Compontent={Track}/>}/>
+            <Route path='/diet' element={<Private Compontent={Diet}/>}/>
             <Route path='*' element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>

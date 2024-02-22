@@ -16,7 +16,7 @@ export default function Header(){
         <div>
             <ul>
                     <Link to="/track"><li>Track</li></Link>
-                    {/* <Link to="/diet"><li>Diet</li></Link> */}
+                    <Link to="/diet"><li>Diet</li></Link>
                     <li onClick={logout}>Logout</li>
             </ul>
         </div>
