@@ -67,7 +67,7 @@ export default function Login(){
             if(data.token!==undefined){
                 localStorage.setItem("nutrify-user",JSON.stringify(data));
                 loggedData.setLoggedUser(data);
-                navigate("/track")
+                navigate("/home")
             }
 
         })
@@ -79,7 +79,7 @@ export default function Login(){
     }
 
     return(
-        <section className="container">
+        <section className="container full">
             <form className="form" onSubmit={handleSubmit}>
                 <h1>Login to Fitness</h1>
 

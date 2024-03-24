@@ -2,18 +2,23 @@
 h1{
   font-size: 2.4rem; 
   margin-bottom: 20px;
-  color: #267035;
 }
+
 .container{
   width: 100%;
-  height: 100vh;
   padding: 30px;
-  background-color: #191A19;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  overflow: auto;
+  height: 94vh;
 }
+
+.full{
+  height: 100vh;
+  background-color: var(--back-faded);
+}
+
 
 .form{
   width: 100%;
@@ -38,23 +43,6 @@ h1{
 }
 
 
-/* Button */
-.btn {
-  padding: 14px 40px;
-  border-radius: 10px;
-  background-color: #267035 ;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-size: 13px;
-  transition: all 0.3s ease; 
-}
-/* #256732 */
-.btn:hover {
-  box-shadow: 0 0 5px 0 #277a38; 
-  font-size: 14px;
-}
 
 .link{
   color: #256732;
@@ -113,120 +101,31 @@ h1{
   opacity: 0;
 }
 
-/* track food */
-.search {
-  width: 100%;
-  padding: 10px 0px;
-  /* background-color: gray; */
-  /* border-radius: 5px; */
-}
 
-.track-container{
-  align-items: flex-start;
-  justify-content: initial;
-  flex-direction: column;
-}
 
-.search-inp
-{
-  width: 100%;
-  height: 45px;
-  padding: 5px;
-  text-indent: 10px;
-  outline: none;
-  border-radius: 10px;
-  border: 1px solid gray;
-  font-size: 18px;
-  transition: box-shadow 0.3s;
-}
 
-.search-inp:focus {
-  box-shadow: 0 0 10px 0 #308641; 
-}
-
-.search {
-  position: relative;
-}
-
-.search-results
-{
-  width: 100%;
-  padding: 10px 5px;
-  margin-top: 10px;
-  position:absolute;
-}
-
-.item {
-  width: 100%;
-  padding: 20px;
-  color: antiquewhite;
-  font-weight: 600;
-  background-color: #373535;
-  cursor: pointer;
-}
-
-/* Food */
-.food {
-  width: 100%;
-  padding: 30px 0px;
-  /* background-color: red; */
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 10px;
-}
-
-.food-img {
-  width: 100%;
-  height: 300px;
-  background-color: blue;
-  border-radius: 5px;
-}
-
-.food-image {
-  width: 100%;
-}
-
-.nutrient{
-  width: 50%;
-  padding: 10px 0px;
-  /* background-color: green; */
-}
-
-.track-control{
-  display: flex;
-  width: 100%;
-  column-gap: 2%;
-}
-
-.track-control > .inp{
-  width: 68%;
-}
-
-.track-control > .btn {
-  width: 30%;
-  padding:10px 0px;
-}
-
-/* Diet */
-.diet-container{
-  align-items: flex-start;
-  justify-content: initial;
-  row-gap: 20px;
-  flex-direction: column;
-}
-
-.item {
-  width: 100%;
-  padding: 20px;
-  background-color: #2f2f2f;
-}
 
 /* responsive for laptop screen */
 @media only screen and (min-width: 500px) {
    h1{
     font-size: 2.9rem;
    }
+
   .form{
     width: 40%;
+  }
+
+  .container{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    margin-top: 5rem;
+  }
+
+  .full{
+    margin-top: 0;
   }
 }

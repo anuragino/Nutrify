@@ -63,7 +63,7 @@ export default function Register(){
     }
 
     return(
-        <section className="container">
+        <section className="container full">
             <form className="form" onSubmit={handleSubmit}>
                 <h1>Join Us For Fitness</h1>
 

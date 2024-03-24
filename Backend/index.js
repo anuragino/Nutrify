@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const cors = require('cors')
 
 
-
 // Importing Models 
 const userModel = require('./Models/userModel')
 const foodModel = require("./Models/foodModel")

@@ -6,11 +6,13 @@ import './App.css'
 import Register from './component/register'
 import Login from './component/login'
 import NotFound from './component/notFound'
-import { Track } from './component/track'
+import Track  from './component/track'
 import { authContext } from './contexts/authContext'
 import Private from './component/Private'
 import Diet from './component/deit'
-
+import Home from './component/home'
+import Read from './component/read'
+import { Profile } from './component/profile'
 
 
 function App() {
@@ -26,8 +28,12 @@ function App() {
             <Route path='/' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/home' element={<Private Compontent={Home}/>}/>
             <Route path='/track' element={<Private Compontent={Track}/>}/>
             <Route path='/diet' element={<Private Compontent={Diet}/>}/>
+            <Route path='/read' element={<Private Compontent={Read}/>}/>
+            <Route path='/profile' element={<Private Compontent={Profile}/>}/>
+
             <Route path='*' element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>

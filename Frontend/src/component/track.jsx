@@ -1,13 +1,31 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { authContext } from "../contexts/authContext"
 import Food from "./food";
 import Header from "./header"
+import "./css/track.css"
+import { useNavigate } from "react-router-dom";
+import TypingText from "./Animation/typingText";
 
-export const Track = () => {
+
+export default function Track(){
 
     const loggedData = useContext(authContext);
     const [foodItems,setFoodItems] = useState([]);
     const [food,setFood] = useState(null);
+
+    const [visible,setVisible] = useState(false);
+
+    // placeholder animated text visiblity state
+    const [placeText,setPlaceText] = useState(true);
+
+    const navigate = useNavigate();
+
+
+    // onClick of home icon food should be gone 
+    const [reset,setReset] = useState(true);   //var for track og
+    function resetVisible(){
+        setReset(false);
+    };
 
     function searchFood(event){
         // if you type smthg in search box
@@ -41,17 +59,23 @@ export const Track = () => {
         }
     }
 
-
     return (
+        
         <section className="container track-container">
-              {/* importing Header Componet */}
-                <Header/>
+                
               <div className="search">
-                  <input type="search" className="search-inp" onChange={searchFood} placeholder="Search food item" />
+                  <input type="search" className="search-inp"
+                    onClick={()=>{
+                        setVisible(true);
+                        setPlaceText(false);
+                    }}
+                    onChange={searchFood} 
+                /> 
+                
 
-                  {
+                {
                       // when you type smthg
-                      foodItems.length!==0?
+                      visible&&foodItems.length!==0?
                       (
                       <div className="search-results">
                           {
@@ -59,6 +83,8 @@ export const Track = () => {
                                   return (
                                       <p className="item" onClick={()=>{
                                           setFood(item);
+                                          setVisible(false);
+                                          setReset(true);
                                       }} key={item._id}> {item.name} </p>
                                   )
                               })
@@ -68,15 +94,29 @@ export const Track = () => {
                     )
                     : null
                 
-                  }
+                }
 
               </div>
 
+              {/* Animated text hovering */}
               {
-                    food!==null?
+                    
+                    placeText?
+                    <span className="placeText">
+                        <TypingText text="Search for food.... " />
+                    </span>:null
+              }
+
+              {/* Fodd items */}
+
+              {
+                    reset&&food!==null?
                     <Food food = {food}/>
                     :null
               }
+
+              {/* importing Header Componet */}
+              <Header reset={resetVisible}/>
 
         </section>
     )

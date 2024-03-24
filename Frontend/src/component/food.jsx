@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { authContext } from "../contexts/authContext";
+import "./css/food.css"
 
 export default function Food(props){
     
@@ -36,6 +37,12 @@ export default function Food(props){
         }
     }
 
+
+    const [message,setMessage] = useState({
+        type:"invisible-msg",
+        text:"Dummy Msg"
+    })
+
     // function to post or add foodItem in your diet
     function trackFoodItem(){
         // Details obj
@@ -66,45 +73,62 @@ export default function Food(props){
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data)
+
+            setMessage({type:"success",text:`${data.message} ${eatenQuantity}gm`});
+            setTimeout(()=>{
+                setMessage({type:"invisible-msg",text:"Dummy sg"});
+            },5000)
         })
         .catch((err)=>{
             console.log(err);
         })
+
     }
+
 
     return(
         <div className="food">
             <div className="food-img">
-                <img className="food-image" src={food.imageUrl}/>
+                <img className="food-image" src={food.image}/>
             </div>
 
-            <h3>{food.name} ({food.calories} Kcal for {eatenQuantity}G)</h3>
+            <section className="food-info">
+                <h3>{food.name} ({food.calories} Kcal for {eatenQuantity}G)</h3>
 
-            <div className="nutrient">
-                <p className="n-title">Protein</p>
-                <p className="n-value">{food.protein}g</p>
-            </div>
+                <section className="nutrient-info">
+                    <article className="nutrient">
+                        <p className="n-title">Protein</p>
+                        <p className="n-value">{food.protein}g</p>
+                    </article>
 
-            <div className="nutrient">
-                <p className="n-title">Carbs</p>
-                <p className="n-value">{food.carbohydrates}g</p>
-            </div>
+                    <article className="nutrient">
+                        <p className="n-title">Carbs</p>
+                        <p className="n-value">{food.carbohydrates}g</p>
+                    </article>
 
-            <div className="nutrient">
-                <p className="n-title">Fat</p>
-                <p className="n-value">{food.fat}g</p>
-            </div>
+                    <article className="nutrient">
+                        <p className="n-title">Fat</p>
+                        <p className="n-value">{food.fat}g</p>
+                    </article>
 
-            <div className="nutrient">
-                <p className="n-title">Fibre</p>
-                <p className="n-value">{food.fiber}g</p>
-            </div>
+                    <article className="nutrient">
+                        <p className="n-title">Fibre</p>
+                        <p className="n-value">{food.fiber}g</p>
+                    </article>
+                </section>
 
-            <div className="track-control">
-                <input type="number" maxLength={6} onChange={calculateMacros} className="inp" placeholder="Quantity in Gms"/>
+                <div className="track-sec">
+                    <p className={message.type}>{message.text}</p>
+                    <div className="track-control">
+                        <input type="number" maxLength={6} onChange={calculateMacros} className="inp" placeholder="Quantity in Gms" />
 
-                <button className="btn" onClick={trackFoodItem} >Track</button>
-            </div>
+                        <button className="btn" onClick={trackFoodItem} >Track</button>
+                    </div>
+                </div>
+
+            </section>
+
+            
 
         </div>
     )

@@ -1,0 +1,90 @@
+  /* Diet */
+  .diet-container{
+    align-items: flex-start;
+    justify-content: initial;
+    row-gap: 20px;
+    flex-direction: column;
+  
+  }
+
+  
+  .item {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--back-faded);
+    border-radius: 5%;
+    color: var(--main-color);
+  }
+  
+  .logdate{
+    height: 4.5rem;
+  }
+
+  .logout{
+    width: fit-content;
+    position: relative;
+    left: 18rem;
+    bottom: 3.3rem; 
+    padding: 10px;
+    background-color: #9affae;
+    border-radius: 50%;
+  }
+
+  .log-icon{
+    height: 1.85rem;
+    color: #308641;
+  }
+  
+  /* Container for date input and icon */
+  .date-input-container {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+  }
+  
+  /* Styling for the date input */
+  .styled-date-input {
+    appearance: none;
+    padding: 10px 30px 10px 10px; /* Adjust padding for icon */
+    font-size: 16px;
+    border: 2px solid #9affae;
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+    cursor: pointer; /* Show pointer cursor when hovering */
+  }
+
+  .styled-date-input:hover{
+    border: none;
+    border: 2px solid #bfbfbf;
+  }
+  
+  
+
+  
+  /* Styling for the FontAwesome icon */
+  .calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--main-color); /* Color for the calendar icon */
+    cursor: pointer;
+    z-index: 1; /* Ensure the icon is clickable */
+  }
+  
+
+  .styled-date-input:focus{
+    border: none;
+    outline: none;
+  }
+
+  .text{
+    font-size: 1.5rem;
+    font-weight: 650;
+  }
+
+
+  
