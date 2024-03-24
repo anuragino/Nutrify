@@ -5,9 +5,13 @@ import "./css/diet.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar,faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import TypingText from "./Animation/typingText";
+import { useNavigate } from "react-router-dom";
+
  
 
 export default function Diet(){
+
+    const navigate = useNavigate();
 
     // Context Data (Globally exist)
     let loggedData = useContext(authContext)
@@ -98,11 +102,11 @@ export default function Diet(){
     }
     
 
-    function logout(){
-        localStorage.removeItem("nutrify-user");
-        loggedData.setLoggedUser(null);
-        navigate("/login");
-    } 
+    // function logout(){
+    //     localStorage.removeItem("nutrify-user");
+    //     loggedData.setLoggedUser(null);
+    //     navigate("/login");
+    // } 
     
     return(
         <section className="container diet-container ">
@@ -123,9 +127,9 @@ export default function Diet(){
 
                 </div>
                 
-                <div className="logout" onClick={logout}>
+                {/* <div className="logout" onClick={logout}>
                     <FontAwesomeIcon className="log-icon" icon={faRightFromBracket} />
-                </div>
+                </div> */}
             </div>
 
             {/* Display the total Calories you have eaten today or on a particular Date */}
@@ -155,8 +159,13 @@ export default function Diet(){
                 }) 
                 :
                 (
-                    <div className="text">
-                        <TypingText text="Add food items..."/>
+                    <div className="eat-food">
+                        <img src="/addfood.png" alt=""  onClick={()=>{
+                            navigate("/track")
+                        }}/>
+                        <span className="ad-text">
+                                <TypingText text="Add food items... " />
+                        </span>
                     </div>
                 )
             }

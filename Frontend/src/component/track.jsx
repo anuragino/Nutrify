@@ -70,6 +70,7 @@ export default function Track(){
                         setPlaceText(false);
                     }}
                     onChange={searchFood} 
+                    placeholder="Search for food..."
                 /> 
                 
 
@@ -98,21 +99,30 @@ export default function Track(){
 
               </div>
 
-              {/* Animated text hovering */}
+              {/* Animated text hovering
               {
                     
                     placeText?
                     <span className="placeText">
                         <TypingText text="Search for food.... " />
                     </span>:null
-              }
+              } */}
 
               {/* Fodd items */}
 
               {
                     reset&&food!==null?
                     <Food food = {food}/>
-                    :null
+                    :
+                    (
+                        <div className="notF">
+                            <img src="/searchfood.png" alt="" />
+                            <span className="placeText">
+                                <TypingText text="Search For the food item you consumed... " />
+                            </span>
+                        </div>
+
+                    )
               }
 
               {/* importing Header Componet */}

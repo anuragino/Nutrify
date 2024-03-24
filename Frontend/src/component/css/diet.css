@@ -35,6 +35,55 @@
     color: #308641;
   }
   
+  .eat-food{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ad-text{
+    display: block;
+    width: 145px;
+  }
+
+  .eat-food img{
+    width: 70%;
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: 500px) {
+    .eat-food{
+      padding-bottom: 50px;
+    }
+    .eat-food img{
+      width: 35%;
+    }
+
+    .item{
+      display: flex;
+      align-items: center;
+      column-gap: 5rem;
+    }
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Container for date input and icon */
   .date-input-container {
     position: relative;
@@ -81,10 +130,6 @@
     outline: none;
   }
 
-  .text{
-    font-size: 1.5rem;
-    font-weight: 650;
-  }
 
 
   
