@@ -29,7 +29,7 @@ export default function Home() {
             {/* Home */}
             <div className="welcome">
                 <article className="wel-text">
-                    <article>
+                    <article className="intro-n">
                         <h1>Hey {name}!</h1>
                         <p>Good going today!</p>
                     </article>
@@ -47,20 +47,37 @@ export default function Home() {
                 </article>
             </div>
 
-            <div className="add-food" >
-                <h2>Find, track and eat healthy food.</h2>
-                <img className="cute-avo" src="/cute-avo.png" alt=""  onClick={()=>{ navigate("/track") }}/>
+            <div className="ban-adds">
+                <section className="add-food" >
+                    <article className="food-tagline">
+                        <h2>Find, track and eat healthy food.</h2>
+                        <div className="f-subtag">
+                            <h3>Discover, Monitor, and Savor Nutrient-Rich Choices</h3>
+                            <h4>Explore, Monitor, and Indulge in Healthful Eating Habits</h4>
+                        </div>
+                    </article>
+                    
+                    <img className="cute-avo" src="/cute-avo.png" alt=""  onClick={()=>{ navigate("/track") }}/>
+                </section>
+
+                <section className="record">
+                    <article className="food-tagline">
+                        <h2>Track Your Progress!</h2>
+                        <div className="f-subtag">
+                            <h3> Monitor Your Journey to Success</h3>
+                            <h4> Watch Your Progress Unfold</h4>
+                        </div>
+                    </article>
+                    <button className="view-btn" onClick={()=>{
+                            navigate("/diet")
+                        }}>View now
+                        <FontAwesomeIcon className="play-icon" icon={faPlay} />
+                    </button>
+                    
+                </section>
             </div>
 
-            <section className="record">
-                <h2>Track Your Progress!</h2>
-                <button className="view-btn" onClick={()=>{
-                        navigate("/diet")
-                    }}>View now
-                    <FontAwesomeIcon className="play-icon" icon={faPlay} />
-                </button>
-                
-            </section>
+            
 
             <section className="blogs">
                 <h2>handPicked For You!!</h2>

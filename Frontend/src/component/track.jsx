@@ -92,8 +92,16 @@ export default function Track(){
                           }
 
                       </div> 
-                    )
-                    : null
+                    ):null
+                    // : (
+                    //     <div className="notF">
+                    //         <img src="/empty.png" alt="" />
+                    //         <h2>No result Found</h2>
+                    //         <p>Try searching for a different keyword</p>
+                    //         <p>or tweek your search a liitle</p>
+                    //     </div>
+
+                    // )
                 
                 }
 

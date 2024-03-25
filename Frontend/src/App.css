@@ -15,8 +15,9 @@ h1{
 }
 
 .full{
+  flex-direction: column;
   height: 100vh;
-  background-color: var(--back-faded);
+  background-color: #FFFFFF;
 }
 
 
@@ -24,7 +25,7 @@ h1{
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 15px;
   align-items: center;
 }
 
@@ -50,6 +51,10 @@ h1{
 
 .link:hover{
   text-shadow: 0 0 5px #236430;
+}
+
+.log-img{
+  height: 30vh;
 }
 
 /* password */
@@ -111,6 +116,10 @@ h1{
     font-size: 2.9rem;
    }
 
+   h2{
+    font-size: 2rem;
+   }
+
   .form{
     width: 40%;
   }
@@ -128,4 +137,8 @@ h1{
   .full{
     margin-top: 0;
   }
+  .log-img{
+    height: 35vh;
+  }
+  
 }

@@ -80,8 +80,9 @@ export default function Login(){
 
     return(
         <section className="container full">
+            <h1>Login to Fitness</h1>
+            <img src="/login.png" alt="login" className="log-img" />
             <form className="form" onSubmit={handleSubmit}>
-                <h1>Login to Fitness</h1>
 
                 <input type="email" required name="email" className="inp" onChange={handleInput} placeholder="Enter Email" value={userCred.email}/>
                 

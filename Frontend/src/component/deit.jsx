@@ -133,10 +133,36 @@ export default function Diet(){
             </div>
 
             {/* Display the total Calories you have eaten today or on a particular Date */}
-            <div className="item">
-                <h1>Total</h1>
-                <h3>  {total.totalCaloreis} Kcal </h3>
-                <p>Protein {total.totalProtein}g, Carbs {total.totalCarbs}g, Fats {total.totalFats}g, Fiber {total.totalFiber}g</p>
+            <div className="item cal-div">
+                <div className="tol-cal">
+                    <h1>Total</h1>
+                    <article className="nutrient nut1">
+                        <img className="cal-img" src="/symbol/calories.png" alt="Calories" />
+                        <h3 className="n-value">{total.totalCaloreis} Kcal</h3>
+                    </article>
+                </div>
+                
+                <div className="nut-info">
+                    <article className="nutrient">
+                        <img className="nut-img1" src="/symbol/Protein.png" alt="protein" />
+                        <p className="n-value">{total.totalProtein}g</p>
+                    </article>
+
+                    <article className="nutrient">
+                        <img className="nut-img1" src="/symbol/carb.png" alt="carb" />
+                        <p className="n-value">{total.totalCarbs}g</p>
+                    </article>
+
+                    <article className="nutrient">
+                        <img className="nut-img1" src="/symbol/fat.png" alt="fat" />
+                        <p className="n-value">{total.totalFats}g</p>
+                    </article>
+
+                    <article className="nutrient">
+                        <img className="nut-img1" src="/symbol/Fiber.png" alt="fiber" />
+                        <p className="n-value">{total.totalFiber}g</p>
+                    </article>
+                </div>
             </div>
 
             {/* Map or Loop to Display all food items that you have eaten on a particular date */}
@@ -149,7 +175,27 @@ export default function Diet(){
                         return (
                             <div className="item" key={item._id}>
                                 <h3>{item.foodId.name} ( {item.details.calories} Kcal for {item.quantity}g )</h3>
-                                <p>Protein {item.details.protein}g, Carbs {item.details.carbohydrates}g, Fats {item.details.fat}g, Fiber {item.details.fiber}g</p>
+                                <div className="nut-info">
+                                    <article className="nt">
+                                        <p className="n-title">Protein</p>
+                                        <p className="n-value">{item.details.protein}g</p>
+                                    </article>
+
+                                    <article className="nt">
+                                        <p className="n-title">Carbs</p>
+                                        <p className="n-value">{item.details.carbohydrates}g</p>
+                                    </article>
+
+                                    <article className="nt">
+                                        <p className="n-title">Fat</p>
+                                        <p className="n-value">{item.details.fat}g</p>
+                                    </article>
+
+                                    <article className="nt">
+                                        <p className="n-title">Fiber</p>
+                                        <p className="n-value">{item.details.fiber}g</p>
+                                    </article>
+                                </div>
                             </div>
                         );
                     } else {

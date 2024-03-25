@@ -24,6 +24,7 @@
 .wel-text{
     display: flex;
     width: 100%;
+    column-gap: 2rem;
 }
 
 .wel-text h1{  
@@ -67,22 +68,24 @@ p{
 }
 
 
-.add-food{
+.ban-adds{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px 15px;
+}
+
+.add-food {
     display: flex;
     column-gap: 4%;
     height: 25vh;
-    padding: 20px 35px;
+    padding: 20px 15px 20px 30px;
     border-radius: 2%;
-    margin: 20px 10px  0 10px;
-    box-shadow: 0 0 10px 0 #3f5024a6; 
+    box-shadow: 0 0 10px 0 #3f5024a6;
     align-items: center;
     background-color: #aa753def;
-
 }
 
-.add-food h2{
-    color: white;
-}
 
 
 .cute-avo:hover{
@@ -93,8 +96,9 @@ p{
 }
 
 .cute-avo{
-    height: 101%;
+    height: 23vh;
 }
+
 
 /* record */
 h2{
@@ -104,10 +108,9 @@ h2{
 .record{
     padding: 20px 40px;
     display: flex;
+    column-gap: 4%;
     background-color: #7c79a4; /*9e9bc8*/
     border-radius: 2%;
-    margin: 20px 10px;
-
     box-shadow: 0 0 10px 0 #3f5024a6; 
 
 
@@ -118,13 +121,18 @@ h2{
     
 }
 
-.record>h2{
+.food-tagline>h2{
     color: white;
+    width: 100%;
+}
+
+.f-subtag{
+    display: none;
 }
 
 .view-btn{
     border: none;
-    width: 50%;
+    width: 35%;
     padding: 5px 7px;
     color: #E2C23B;
     font-family: "Roboto", sans-serif;
@@ -179,12 +187,83 @@ h2{
 
 
 @media only screen and (min-width: 500px) {
-   .home-container{
-     margin-top: 5rem;
-   }
+    
+    .home-container{
+        margin-top: 5rem;
+    }
+    .intro-n{
+        width: 70%;
+    }
+    .intro-n>h1{
+        font-size: 3.2rem;
+    }
+
+    .intro-n>p{
+        margin-top: 10px;
+    }
    
    .blogs>h2{
         font-size: 1.7rem;
         padding: 15px;
    }
- }
+   
+   .user-img{
+        width: 45%;
+    }
+    .wel-text{
+        column-gap: 30%;
+        padding: 0 1rem 3rem 1rem ;
+    }
+
+    .welcome{
+        position: relative;
+    }
+
+    .micros{
+        position: absolute;
+        padding: 1rem;
+        column-gap: 3rem;
+        bottom: 6%;
+    }
+
+    .add-food{
+        width: 100%;
+        column-gap: 25%;
+        padding: 20px 40px 20px 100px;
+    }
+
+    .ban-adds{
+       width: 100%;
+        row-gap: 25px;
+        padding: 20px 35px;
+    }
+
+    .food-tagline{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .food-tagline>h2{
+        width: 50vw;
+    }
+
+    .f-subtag{
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    .record{
+        column-gap: 10rem;
+        padding: 30px 40px 30px 100px;
+
+    }
+
+    .view-btn{
+        width: 25%;
+    }
+
+}

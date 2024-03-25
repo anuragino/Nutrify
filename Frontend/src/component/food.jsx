@@ -97,22 +97,22 @@ export default function Food(props){
 
                 <section className="nutrient-info">
                     <article className="nutrient">
-                        <p className="n-title">Protein</p>
+                        <img className="nut-img" src="/symbol/Protein.png" alt="protein" />
                         <p className="n-value">{food.protein}g</p>
                     </article>
 
                     <article className="nutrient">
-                        <p className="n-title">Carbs</p>
+                        <img className="nut-img" src="/symbol/carb.png" alt="carb" />
                         <p className="n-value">{food.carbohydrates}g</p>
                     </article>
 
                     <article className="nutrient">
-                        <p className="n-title">Fat</p>
+                        <img className="nut-img" src="/symbol/fat.png" alt="fat" />
                         <p className="n-value">{food.fat}g</p>
                     </article>
 
                     <article className="nutrient">
-                        <p className="n-title">Fibre</p>
+                        <img className="nut-img" src="/symbol/Fiber.png" alt="fiber" />
                         <p className="n-value">{food.fiber}g</p>
                     </article>
                 </section>

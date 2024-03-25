@@ -64,8 +64,10 @@ export default function Register(){
 
     return(
         <section className="container full">
+            
+            <h1>Join Us For Fitness</h1>
+            <img src="/signup.png" alt="signup" className="log-img" />
             <form className="form" onSubmit={handleSubmit}>
-                <h1>Join Us For Fitness</h1>
 
                 <input type="text" onChange={handleInput} required name="name" className="inp" placeholder="Enter Name" value={userDetails.name}/>
 

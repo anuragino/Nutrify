@@ -48,9 +48,11 @@ p{
   color: white;
   border: none;
   text-transform: uppercase;
+  font-weight: 700;
   cursor: pointer;
   font-size: 13px;
   transition: all 0.3s ease; 
+  width: 100%;
 }
 /* #256732 */
 .btn:hover {

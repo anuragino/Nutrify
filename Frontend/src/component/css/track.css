@@ -63,6 +63,11 @@
     width: 90%;
   }
 
+  /* .no-res{
+    height: 90vh;
+    overflow: hidden;
+  } */
+
 
 @media only screen and (min-width: 500px) {
   .notF{
@@ -71,6 +76,8 @@
   .notF img{
     width: 35%;
   }
+
+  
 
 
 }

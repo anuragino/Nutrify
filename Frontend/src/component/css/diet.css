@@ -10,7 +10,7 @@
   
   .item {
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     background-color: var(--back-faded);
     border-radius: 5%;
     color: var(--main-color);
@@ -52,6 +52,43 @@
     cursor: pointer;
   }
 
+  .nut-info{
+    display: flex;
+    width: 100%;
+  }
+
+  .cal-img{
+    width: 4rem;
+  }
+
+  .nut-img1{
+    width: 50px;
+  }
+
+  .cal-div{
+    padding: 0 20px;
+  }
+
+  .tol-cal{
+    display: flex;
+    column-gap: 2rem;
+    align-items: center;
+  }
+
+  .nt {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 10px 10px;
+  }
+
+  .n-title{
+    color: #2C3C4D;
+  }
+
   @media only screen and (min-width: 500px) {
     .eat-food{
       padding-bottom: 50px;
@@ -65,7 +102,34 @@
       align-items: center;
       column-gap: 5rem;
     }
-  
+
+    .cal-img{
+      width: 4.5rem;
+    }
+
+    .tol-cal{
+      column-gap: 4rem;
+    }
+
+    .nut-img1{
+      width: 64px;
+    }
+
+    .nut-info{
+      width: 70%;
+    }
+
+    .nutrient{
+      text-align: center;
+    }
+    
+    .diet-container{
+      padding-bottom: 70px;
+    }
+
+    .item>h3{
+      width: 40%;
+    }
   
   }
 
