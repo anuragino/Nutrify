@@ -86,7 +86,7 @@ app.post('/login',async (req,res)=>{
     let userCred = req.body;
 
     try{
-        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(10000);
+        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(30000);
 
         if(user!=null){
             bcrpt.compare(userCred.password,user.password, (err,success)=>{
@@ -121,7 +121,7 @@ app.post('/login',async (req,res)=>{
     // }
 
     catch (error) {
-        if (error instanceof MongooseError && error.message.includes('buffering timed out')) {
+        if (error.message.includes('buffering timed out')) {
           console.error('Operation timed out. Try again later.');
         } else {
           console.error(error);
