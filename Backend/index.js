@@ -187,3 +187,9 @@ app.get("/track/:userId/:date",verifyToken,async (req,res)=>{
 app.listen(8000,()=>{
     console.log("Connection Established")
 })
+
+app.get('*',(req,res,next)=>{
+    res.status(200).json({
+      message:'bad request'
+    })
+})
