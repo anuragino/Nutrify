@@ -27,6 +27,8 @@ const connectToDatabase = async()=>{
         console.error(err);
     }
 }
+
+
 connectToDatabase()
 
 const app = express()
@@ -36,21 +38,32 @@ const app = express()
 // Middleware
 app.use(express.json())
 app.use(cors());
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 
 
 // endpoint for user registration
 app.post('/register',(req,res)=>{
     let user = req.body;
+
     bcrpt.genSalt(10,(err,salt)=>{
+
         if(!err){
             bcrpt.hash(user.password,salt,async (err,hpass)=>{
+
                 if(!err){  
                     user.password = hpass;
                     try{
                         let doc = await userModel.create(user)
                         res.status(201).send({message:"User Registered"})
                     }
+
                     catch(err){
                         console.log(err);
                         res.status(500).send({message:"Some Problem"})
@@ -71,8 +84,10 @@ app.post('/register',(req,res)=>{
 // endpoint for login 
 app.post('/login',async (req,res)=>{
     let userCred = req.body;
+
     try{
         const user = await userModel.findOne({ email: userCred.email });
+
         if(user!=null){
             bcrpt.compare(userCred.password,user.password, (err,success)=>{
                 if(success==true){
@@ -82,6 +97,7 @@ app.post('/login',async (req,res)=>{
                         
                         if(!err){
                             res.send({message:"Login Success",token:token,userid:user._id,name:user.name});
+
                         }
                         else{
                             res.send({message:"Invalid Token"})
@@ -97,6 +113,8 @@ app.post('/login',async (req,res)=>{
             res.status(404).send({message:"User not found"})
         }
     }
+
+    
     catch(err){
         console.log(err);
         res.status(500).send({message:"Some Problem"})
