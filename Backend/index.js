@@ -1,25 +1,25 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const bcrpt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const cors = require('cors')
+import express, { json } from 'express';
+import { connect } from 'mongoose';
+import { genSalt, hash, compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
+import cors from 'cors';
 
 
 // Importing Models 
-const userModel = require('./Models/userModel')
-const foodModel = require("./Models/foodModel")
-const trackModel = require("./Models/trackingModel")
-const verifyToken = require('./verifyToken')
+import { create, findOne } from './Models/userModel';
+import { find } from "./Models/foodModel";
+import { create as _create, find as _find } from "./Models/trackingModel";
+import verifyToken from './verifyToken';
 
 // To hide private Keys and urls
-const dotEnv = require("dotenv");
-dotEnv.config({path:"./config.env"});
+import { config } from "dotenv";
+config({path:"./config.env"});
 
 const mongoUrl = process.env.mongoUrl;
 // connection 
 const connectToDatabase = async()=>{
     try {
-        let connection = await mongoose.connect(mongoUrl);
+        let connection = await connect(mongoUrl);
         console.log("Successfully connected to DB");
     } catch (err) {
         console.error(err);
@@ -33,7 +33,7 @@ connectToDatabase()
 const app = express()
 
 // Middleware
-app.use(express.json())
+app.use(json())
 app.use(cors());
 
 
@@ -42,15 +42,15 @@ app.use(cors());
 app.post('/register',(req,res)=>{
     let user = req.body;
 
-    bcrpt.genSalt(10,(err,salt)=>{
+    genSalt(10,(err,salt)=>{
         if(!err){
 
-            bcrpt.hash(user.password,salt,async (err,hpass)=>{
+            hash(user.password,salt,async (err,hpass)=>{
                 if(!err){  
                     user.password = hpass;
 
                     try{
-                        let doc = await userModel.create(user)
+                        let doc = await create(user)
                         res.status(201).send({message:"User Registered"})
                     }
                     catch(err){
@@ -75,15 +75,15 @@ app.post('/login',async (req,res)=>{
     let userCred = req.body;
 
     try{
-        const user = await userModel.findOne({ email: userCred.email });
+        const user = await findOne({ email: userCred.email });
 
         if(user!=null){
 
-            bcrpt.compare(userCred.password,user.password, (err,success)=>{
+            compare(userCred.password,user.password, (err,success)=>{
                 if(success==true){
                     
                     const secretKey = process.env.secretKey;
-                    jwt.sign({email:userCred.email},secretKey,(err,token)=>{
+                    sign({email:userCred.email},secretKey,(err,token)=>{
                         
                         if(!err){
                             res.send({message:"Login Success",token:token,userid:user._id,name:user.name});
@@ -112,7 +112,7 @@ app.post('/login',async (req,res)=>{
 // endpoint to get all foods info
 app.get("/foods",verifyToken,async (req,res)=>{
     try{
-        const foods = await foodModel.find();
+        const foods = await find();
         res.send({message:"List of All food persent",foods});
     }
     catch(err){
@@ -128,7 +128,7 @@ app.get("/foods/:name",verifyToken,async (req,res)=>{
         // $regex is used to find pattern like name = pan,
         //  it will show panner ,panner tika,etc
         // $option:'i' is for case insenstivity AnuR = anur
-        const food = await foodModel.find({name:{$regex:name,$options:'i'}});
+        const food = await find({name:{$regex:name,$options:'i'}});
 
         if(food.length!==0){
             res.send(food);
@@ -150,7 +150,7 @@ app.post("/track",verifyToken,async (req,res)=>{
     let trackData = req.body;
 
     try{
-        let data = await trackModel.create(trackData);
+        let data = await _create(trackData);
         console.log(data)
         res.status(201).send({message:"Food Added"});
     }
@@ -172,7 +172,7 @@ app.get("/track/:userId/:date",verifyToken,async (req,res)=>{
     let strDate = date.getDate() +'/'+ (date.getMonth()+1) +'/'+ date.getFullYear();
 
     try{
-        let foods = await trackModel.find({userId:user,eatenDate:strDate})
+        let foods = await _find({userId:user,eatenDate:strDate})
                                     .populate('userId').populate('foodId')
 
         res.send(foods);
@@ -194,4 +194,4 @@ app.get('*',(req,res,next)=>{
     })
 })
 
-module.exports = app;
+export default app;
