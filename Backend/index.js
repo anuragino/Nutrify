@@ -193,3 +193,5 @@ app.get('*',(req,res,next)=>{
       message:'bad request'
     })
 })
+
+module.exports = app;
