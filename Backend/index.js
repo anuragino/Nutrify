@@ -1,39 +1,40 @@
-import express, { json } from 'express';
-import { connect } from 'mongoose';
-import { genSalt, hash, compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
-import cors from 'cors';
+const express = require('express')
+const mongoose = require('mongoose')
+const bcrpt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const cors = require('cors')
 
 
 // Importing Models 
-import { create, findOne } from './Models/userModel';
-import { find } from "./Models/foodModel";
-import { create as _create, find as _find } from "./Models/trackingModel";
-import verifyToken from './verifyToken';
+const userModel = require('./Models/userModel')
+const foodModel = require("./Models/foodModel")
+const trackModel = require("./Models/trackingModel")
+const verifyToken = require('./verifyToken')
+
 
 // To hide private Keys and urls
-import { config } from "dotenv";
-config({path:"./config.env"});
-
+const dotEnv = require("dotenv");
+dotEnv.config({path:"./config.env"});
 const mongoUrl = process.env.mongoUrl;
+
+
 // connection 
 const connectToDatabase = async()=>{
     try {
-        let connection = await connect(mongoUrl);
+        let connection = await mongoose.connect(mongoUrl);
         console.log("Successfully connected to DB");
     } catch (err) {
         console.error(err);
     }
 }
-
 connectToDatabase()
-
-
 
 const app = express()
 
+
+
 // Middleware
-app.use(json())
+app.use(express.json())
 app.use(cors());
 
 
@@ -41,16 +42,13 @@ app.use(cors());
 // endpoint for user registration
 app.post('/register',(req,res)=>{
     let user = req.body;
-
-    genSalt(10,(err,salt)=>{
+    bcrpt.genSalt(10,(err,salt)=>{
         if(!err){
-
-            hash(user.password,salt,async (err,hpass)=>{
+            bcrpt.hash(user.password,salt,async (err,hpass)=>{
                 if(!err){  
                     user.password = hpass;
-
                     try{
-                        let doc = await create(user)
+                        let doc = await userModel.create(user)
                         res.status(201).send({message:"User Registered"})
                     }
                     catch(err){
@@ -73,17 +71,14 @@ app.post('/register',(req,res)=>{
 // endpoint for login 
 app.post('/login',async (req,res)=>{
     let userCred = req.body;
-
     try{
-        const user = await findOne({ email: userCred.email });
-
+        const user = await userModel.findOne({ email: userCred.email });
         if(user!=null){
-
-            compare(userCred.password,user.password, (err,success)=>{
+            bcrpt.compare(userCred.password,user.password, (err,success)=>{
                 if(success==true){
                     
                     const secretKey = process.env.secretKey;
-                    sign({email:userCred.email},secretKey,(err,token)=>{
+                    jwt.sign({email:userCred.email},secretKey,(err,token)=>{
                         
                         if(!err){
                             res.send({message:"Login Success",token:token,userid:user._id,name:user.name});
@@ -109,10 +104,12 @@ app.post('/login',async (req,res)=>{
     
 })
 
+
+
 // endpoint to get all foods info
 app.get("/foods",verifyToken,async (req,res)=>{
     try{
-        const foods = await find();
+        const foods = await foodModel.find();
         res.send({message:"List of All food persent",foods});
     }
     catch(err){
@@ -121,6 +118,7 @@ app.get("/foods",verifyToken,async (req,res)=>{
     }
 });
 
+
 //endpoint to fetch single food by name
 app.get("/foods/:name",verifyToken,async (req,res)=>{
     const name = req.params.name;
@@ -128,8 +126,7 @@ app.get("/foods/:name",verifyToken,async (req,res)=>{
         // $regex is used to find pattern like name = pan,
         //  it will show panner ,panner tika,etc
         // $option:'i' is for case insenstivity AnuR = anur
-        const food = await find({name:{$regex:name,$options:'i'}});
-
+        const food = await foodModel.find({name:{$regex:name,$options:'i'}});
         if(food.length!==0){
             res.send(food);
         }
@@ -145,12 +142,12 @@ app.get("/foods/:name",verifyToken,async (req,res)=>{
 });
 
 
+
 // endpoint to track a food
 app.post("/track",verifyToken,async (req,res)=>{
     let trackData = req.body;
-
     try{
-        let data = await _create(trackData);
+        let data = await trackModel.create(trackData);
         console.log(data)
         res.status(201).send({message:"Food Added"});
     }
@@ -160,21 +157,18 @@ app.post("/track",verifyToken,async (req,res)=>{
     }
 })
 
+
 // endpoint to fetch all food eaten by a person
 app.get("/track/:userId/:date",verifyToken,async (req,res)=>{
     let user = req.params.userId;
     let date = new Date(req.params.date);
-
     // Date Stuff was trickie for us 
     // In url for checking api Date format : MM-DD-YYYY
-
     // in JS date.getMonth() ->[0,11] so we have to add 1 to get correct month.
     let strDate = date.getDate() +'/'+ (date.getMonth()+1) +'/'+ date.getFullYear();
-
     try{
-        let foods = await _find({userId:user,eatenDate:strDate})
+        let foods = await trackModel.find({userId:user,eatenDate:strDate})
                                     .populate('userId').populate('foodId')
-
         res.send(foods);
     }
     catch(err){
@@ -182,7 +176,6 @@ app.get("/track/:userId/:date",verifyToken,async (req,res)=>{
         res.status(500).send({message:"Error while tracking user data"})
     }
 })
-
 
 app.listen(8000,()=>{
     console.log("Connection Established")
@@ -194,4 +187,4 @@ app.get('*',(req,res,next)=>{
     })
 })
 
-export default app;
+module.exports = app;
