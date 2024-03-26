@@ -38,13 +38,13 @@ const app = express()
 // Middleware
 app.use(express.json())
 app.use(cors());
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     res.setHeader('Access-Control-Allow-Credentials', true);
+//     next();
+// });
 
 
 
@@ -86,7 +86,7 @@ app.post('/login',async (req,res)=>{
     let userCred = req.body;
 
     try{
-        const user = await userModel.findOne({ email: userCred.email });
+        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(10000);
 
         if(user!=null){
             bcrpt.compare(userCred.password,user.password, (err,success)=>{
@@ -115,10 +115,18 @@ app.post('/login',async (req,res)=>{
     }
 
     
-    catch(err){
-        console.log(err);
-        res.status(500).send({message:"Some Problem"})
-    }
+    // catch(err){
+    //     console.log(err);
+    //     res.status(500).send({message:"Some Problem"})
+    // }
+
+    catch (error) {
+        if (error instanceof MongooseError && error.message.includes('buffering timed out')) {
+          console.error('Operation timed out. Try again later.');
+        } else {
+          console.error(error);
+        }
+      }
     
 })
 
