@@ -47,7 +47,7 @@ export default function Diet(){
 
     // it'll be called when the date changes (fetch will be called and setItems will happen)
     useEffect(()=>{
-        fetch(`http://localhost:8000/track/${loggedData.loggedUser.userid}/${date}`, {
+        fetch(`https://nutrify-api.vercel.app/track/${loggedData.loggedUser.userid}/${date}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${loggedData.loggedUser.token}`

@@ -62,7 +62,7 @@ export default function Food(props){
         console.log(trackItem);
 
         // adding eaten Food item in the api DB
-        fetch("http://localhost:8000/track",{
+        fetch("https://nutrify-api.vercel.app/track",{
             method:"POST",
             body: JSON.stringify(trackItem),
             headers:{

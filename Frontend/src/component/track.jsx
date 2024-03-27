@@ -31,7 +31,7 @@ export default function Track(){
         // if you type smthg in search box
         if(event.target.value.length!==0){
             // fetch data from db
-            fetch(`http://localhost:8000/foods/${event.target.value}`,{
+            fetch(`https://nutrify-api.vercel.app/foods/${event.target.value}`,{
                 method:"GET",
                 headers:{
                     "Authorization" : `Bearer ${loggedData.loggedUser.token}`

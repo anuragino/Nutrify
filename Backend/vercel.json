@@ -12,7 +12,5 @@
             "src": "/(.*)",
             "dest": "/index.js" 
         }
-    ],
-    
-    "installCommand": "npm install"
+    ]
  }
