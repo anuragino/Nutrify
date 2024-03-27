@@ -37,9 +37,7 @@ const app = express()
 
 // Middleware
 app.use(express.json())
-app.use(cors({
-    origin : "https://nutrify-one.vercel.app"
-}));
+app.use(cors());
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
