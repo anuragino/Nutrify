@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
@@ -30,6 +30,8 @@ export default function Register(){
         }) 
     }
 
+    const navigate = useNavigate();
+
     function handleSubmit(event){
         event.preventDefault();
         console.log(userDetails);
@@ -55,6 +57,7 @@ export default function Register(){
             setTimeout(()=>{
                 setMessage({type:"invisible-msg",text:"Dummy sg"});
             },5000)
+            navigate("/login")
 
         })
         .catch((err)=>{
