@@ -66,7 +66,7 @@ export default function Food(props){
             method:"POST",
             body: JSON.stringify(trackItem),
             headers:{
-                "Authorization" :`Bearear ${loggedData.loggedUser.token}`,
+                "Authorization" :`bearer ${loggedData.loggedUser.token}`,
                 "Content-Type":"application/json"
             }
         })
