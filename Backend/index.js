@@ -86,7 +86,7 @@ app.post('/login',async (req,res)=>{
     let userCred = req.body;
 
     try{
-        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(30000);
+        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(10000);
 
         if(user!=null){
             bcrpt.compare(userCred.password,user.password, (err,success)=>{
@@ -115,18 +115,10 @@ app.post('/login',async (req,res)=>{
     }
 
     
-    // catch(err){
-    //     console.log(err);
-    //     res.status(500).send({message:"Some Problem"})
-    // }
-
-    catch (error) {
-        if (error.message.includes('buffering timed out')) {
-          console.error('Operation timed out. Try again later.');
-        } else {
-          console.error(error);
-        }
-      }
+    catch(err){
+        console.log(err);
+        res.status(500).send({message:"Some Problem while login"})
+    }
     
 })
 
