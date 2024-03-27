@@ -86,7 +86,7 @@ app.post('/login',async (req,res)=>{
     let userCred = req.body;
 
     try{
-        const user = await userModel.findOne({ email: userCred.email }).maxTimeMS(10000);
+        const user = await userModel.findOne({ email: userCred.email });
 
         if(user!=null){
             bcrpt.compare(userCred.password,user.password, (err,success)=>{
