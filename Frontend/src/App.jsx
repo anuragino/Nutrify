@@ -25,7 +25,7 @@ function App() {
       <authContext.Provider  value={{loggedUser,setLoggedUser}}>
       <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Login/>}/>
+            <Route path='/' element={<Private Compontent={Home}/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/home' element={<Private Compontent={Home}/>}/>
