@@ -5,7 +5,7 @@ import { faSquareFacebook, faInstagram, faLinkedin, faTwitter } from '@fortaweso
 
 export default function Footer() {
   return (
-        <footer className='section-p1'>
+        <footer >
             <div className="col">
                 <img src="/Nutrify.png" alt="" className='logo' />
                 <h4>Contact</h4>

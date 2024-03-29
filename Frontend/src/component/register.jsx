@@ -94,7 +94,7 @@ export default function Register(){
 
                 <input type="number" min={12} max={100} onChange={handleInput} name="age" className="inp" placeholder="Enter Age" value={userDetails.age} />
 
-                <button className="btn">Register</button>
+                <button className="btn log-b">Register</button>
 
                 <p>Already Registered? <Link className="link" to="/login">Login</Link> </p>
                 <p className={message.type}>{message.text}</p>

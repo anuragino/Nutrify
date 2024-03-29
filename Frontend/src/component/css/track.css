@@ -2,12 +2,21 @@
   .search {
     width: 100%;
     padding: 10px 0px;
+    position: relative;
   }
   
+  .search-icon {
+    position: absolute;
+    bottom: 21px;
+    left: 10px;
+    height: 1.3rem;
+
+  }
   .track-container{
     align-items: flex-start;
     justify-content: initial;
     flex-direction: column;
+    padding: 30px 20px;
   }
   
   .search-inp
@@ -15,7 +24,7 @@
     width: 100%;
     height: 45px;
     padding: 5px;
-    text-indent: 10px;
+    text-indent: 30px;
     outline: none;
     border-radius: 10px;
     border: 1px solid gray;
@@ -27,20 +36,18 @@
     box-shadow: 0 0 10px 0 #308641; 
   }
   
-  .search {
-    position: relative;
-  }
+  
   
   .search-results
   {
     width: 100%;
     padding: 10px 5px;
     position:absolute;
-    max-height: 65vh;
+    max-height: 60vh;
     overflow: hidden;
   }
   
-  .search-results .item {
+  .search-results .food-item {
     width: 100%;
     padding: 20px;
     color: var(--normal-color);
@@ -60,7 +67,11 @@
   }
 
   .notF img{
-    width: 90%;
+    width: 100%;
+  }
+
+  .search-item{
+    border-bottom:  2px solid var(--normal-color);
   }
 
   /* .no-res{
@@ -74,10 +85,24 @@
     width: 100%;
   }
   .notF img{
-    width: 35%;
+    width: 30%;
+  }
+  .track-container{
+    
+    padding: 30px 50px;
   }
 
-  
+  .search-icon {
+    position: absolute;
+    bottom: 21px;
+    left: 20px;
+    height: 1.3rem;
+  }
+  .search-inp
+  {
+    padding: 10px;
+    text-indent: 40px;
+  }
 
 
 }

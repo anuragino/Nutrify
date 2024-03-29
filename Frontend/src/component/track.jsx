@@ -5,6 +5,8 @@ import Header from "./header"
 import "./css/track.css"
 import { useNavigate } from "react-router-dom";
 import TypingText from "./Animation/typingText";
+import{ FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Track(){
@@ -64,6 +66,7 @@ export default function Track(){
         <section className="container track-container">
                 
               <div className="search">
+                    <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#49b46b",}} />
                   <input type="search" className="search-inp"
                     onClick={()=>{
                         setVisible(true);
@@ -82,11 +85,13 @@ export default function Track(){
                           {
                               foodItems.map((item)=>{
                                   return (
-                                      <p className="item" onClick={()=>{
+                                    <div className="search-item">
+                                        <p className="food-item" onClick={()=>{
                                           setFood(item);
                                           setVisible(false);
                                           setReset(true);
                                       }} key={item._id}> {item.name} </p>
+                                    </div>   
                                   )
                               })
                           }

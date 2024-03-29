@@ -62,7 +62,9 @@ export default function Food(props){
         console.log(trackItem);
 
         // adding eaten Food item in the api DB
-        fetch("https://nutrify-api.vercel.app/track",{
+        // there is some error in this we have to solve 
+        //  data is not fetching from api https://nutrify-api.vercel.app
+        fetch("http://localhost:8000/track",{
             method:"POST",
             body: JSON.stringify(trackItem),
             headers:{
@@ -118,12 +120,13 @@ export default function Food(props){
                 </section>
 
                 <div className="track-sec">
-                    <p className={message.type}>{message.text}</p>
                     <div className="track-control">
                         <input type="number" maxLength={6} onChange={calculateMacros} className="inp" placeholder="Quantity in Gms" />
 
                         <button className="btn" onClick={trackFoodItem} >Track</button>
                     </div>
+                    
+                    <p className={message.type}>{message.text}</p>
                 </div>
 
             </section>
