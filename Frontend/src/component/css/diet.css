@@ -4,7 +4,7 @@
     justify-content: initial;
     row-gap: 20px;
     flex-direction: column;
-
+    padding: 30px 20px;
     padding-bottom: 100px;
   
   }
@@ -14,7 +14,7 @@
     width: 100%;
     padding: 20px 20px 10px 20px;
     background-color: var(--back-faded);
-    border-radius: 5%;
+    border-radius: 20px;
     color: var(--main-color);
   }
   
@@ -68,13 +68,14 @@
   }
 
   .cal-div{
-    padding: 0 20px;
+    padding: 0 0;
   }
 
   .tol-cal{
     display: flex;
     column-gap: 2rem;
     align-items: center;
+    padding: 0 20px;
   }
 
   .nt {
@@ -96,7 +97,7 @@
       padding-bottom: 50px;
     }
     .eat-food img{
-      width: 35%;
+      width: 30%;
     }
 
     .item{
@@ -131,6 +132,10 @@
 
     .item>h3{
       width: 40%;
+    }
+
+    .cal-div{
+      padding: 10px 20px;
     }
   
   }

@@ -82,8 +82,10 @@ export default function Read() {
                     </div> 
                 </div>
 
-                <a href="https://www.health.com/" target="_blank"><button className="btn b-mar">Read More  <FontAwesomeIcon className="play-icon" icon={faPlay} style={{color:"white"}} />
-</button></a>
+                <button className="btn b-mar" onClick={()=>{
+                        window.open("https://www.health.com/", "_blank");
+                }}>Read More  <FontAwesomeIcon className="play-icon" icon={faPlay} style={{color:"white"}} />
+                </button>
                 
 
             </section>

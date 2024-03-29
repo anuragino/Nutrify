@@ -102,7 +102,7 @@ export default function Login(){
                     </div>
                 </div>
 
-                <button className="btn">Login</button>
+                <button className="btn log-b">Login</button>
 
                 <p>Not Registered? <Link className="link" to="/register"> Create a new Account</Link> </p>
 

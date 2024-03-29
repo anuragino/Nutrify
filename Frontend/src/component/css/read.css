@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     row-gap: 10%;
-    padding: 20px 20px;
+    padding: 20px 15px;
 }
 
 
@@ -40,17 +40,25 @@
     background-image:url("/b1.png") ;
     background-size: cover;
     background-position: center;
-    border-radius: 5%;
+    border-radius: 20px;
     margin-bottom: 15px;
     transition: all ease-in-out 0.4s;
     height: 15vh;
-    overflow-y: hidden;
+    width: 100%;
 }
 
 
 .read:hover{
     box-shadow: 0 0 10px 0 #308641; 
-    height: 27vh;
+    height: 33vh;
+}
+
+.read .read-text p {
+    display: none;
+}
+
+.read:hover .read-text p {
+    display: block;
 }
 
 .read-text>p{
@@ -95,20 +103,21 @@
 
 .b-mar{
     margin: 20px 0;
+    width: 50%;
 }
 /* record */
 
 
 .ban-img img{
     position: absolute;
-    width: 42%;
-    top: 31%;
+    width: 40%;
+    bottom: 1%;
     right: 0 ;
 }
 
 .banner{
     margin: 0  0 20px 0;
-    padding: 20px 20px;
+    padding: 20px 10px 20px 20px;
     height: 29vh;
     display: flex;
     flex-direction: column;
@@ -190,7 +199,7 @@
         border-radius: 2%;
         display: flex;
         column-gap: 6rem;
-        height: 50vh;
+        height: 45vh;
         margin-bottom: 25px;
     }
 
@@ -200,17 +209,21 @@
 
     .read-text{
         width: 50%;
-        padding: 60px 20px;
+        padding: 40px 20px;
     }
     .blog-img{
         display:initial;
         width: 35% ;
         border-radius: 2%;
+        object-fit: cover;
+    }
+    .read .read-text p {
+        display: block;
     }
 
     .read:hover{
         box-shadow: 0; 
-        height: 50vh;
+        height: 45vh;
     }
     .read-text>p{
         font-size: 1rem;

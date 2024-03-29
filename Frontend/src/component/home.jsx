@@ -12,11 +12,13 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 export default function Home() {
     const loggedData = useContext(authContext);
     const [totalCalories, setTotalCalories] = useState(0);
+    const [totalProtein, setTotalProtein] = useState(0);
 
     useEffect(() => {
         if (loggedData && loggedData.loggedUser && loggedData.loggedUser.Total) {
-            const { totalCaloreis } = loggedData.loggedUser.Total;
-            setTotalCalories(totalCaloreis || 0);
+            const { totalCaloreis ,totalProtein} = loggedData.loggedUser.Total;
+            setTotalCalories(totalCaloreis);
+            setTotalProtein(totalProtein);
         }
     }, [loggedData]);
 
@@ -43,21 +45,21 @@ export default function Home() {
 
                 <article className="micros">
                     <h1>{totalCalories} <span className="grey">Calories</span> </h1>
-                    <h1>{totalCalories} <span className="grey">Fat</span></h1>
+                    <h1>{totalProtein} <span className="grey">Protein</span></h1>
                 </article>
             </div>
 
             <div className="ban-adds">
                 <section className="add-food" >
                     <article className="food-tagline">
-                        <h2>Find, track and eat healthy food.</h2>
+                        <h2 className="moto-line">Find, track and eat healthy food.</h2>
                         <div className="f-subtag">
                             <h3>Discover, Monitor, and Savor Nutrient-Rich Choices</h3>
-                            <h4>Explore, Monitor, and Indulge in Healthful Eating Habits</h4>
+                            <h3>Explore, Monitor, and Indulge in Healthful Eating Habits</h3>
                         </div>
                     </article>
                     
-                    <img className="cute-avo" src="/cute-avo.png" alt=""  onClick={()=>{ navigate("/track") }}/>
+                    <img className="cute-avo" src="/cute-avo.png" alt="" />
                 </section>
 
                 <section className="record">
@@ -65,7 +67,7 @@ export default function Home() {
                         <h2>Track Your Progress!</h2>
                         <div className="f-subtag">
                             <h3> Monitor Your Journey to Success</h3>
-                            <h4> Watch Your Progress Unfold</h4>
+                            <h3> Watch Your Progress Unfold</h3>
                         </div>
                     </article>
                     <button className="view-btn" onClick={()=>{
@@ -80,7 +82,7 @@ export default function Home() {
             
 
             <section className="blogs">
-                <h2>handPicked For You!!</h2>
+                <h2>HandPicked For You!!</h2>
 
                 <div className="read b4">
                     <img src="/b4.png" alt="" className="blog-img" />
@@ -101,10 +103,10 @@ export default function Home() {
                     </div>  
                 </div>
 
-                <button className="btn" onClick={()=>{
+                <button className="btn re-b" onClick={()=>{
                         navigate("/read")
                     }} >Read More  <FontAwesomeIcon className="play-icon" icon={faPlay} style={{color:"white"}} />
-</button>
+                </button>
 
             </section>
 
