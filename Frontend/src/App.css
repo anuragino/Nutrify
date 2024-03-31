@@ -1,6 +1,6 @@
 /* Container */
 h1{
-  font-size: 2.4rem; 
+  font-size: 2rem; 
   margin-bottom: 20px;
 }
 
@@ -139,6 +139,9 @@ h1{
   }
   .log-img{
     height: 35vh;
+  }
+  h1{
+    font-size: 2.5rem;
   }
   
 }

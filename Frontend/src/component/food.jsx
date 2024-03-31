@@ -64,7 +64,7 @@ export default function Food(props){
         // adding eaten Food item in the api DB
         // there is some error in this we have to solve 
         //  data is not fetching from api https://nutrify-api.vercel.app
-        fetch("http://localhost:8000/track",{
+        fetch("https://nutrify-api.vercel.app/track",{
             method:"POST",
             body: JSON.stringify(trackItem),
             headers:{
@@ -72,19 +72,20 @@ export default function Food(props){
                 "Content-Type":"application/json"
             }
         })
-        .then((response)=>response.json())
-        .then((data)=>{
-            console.log(data)
-
-            setMessage({type:"success",text:`${data.message} ${eatenQuantity}gm`});
-            setTimeout(()=>{
-                setMessage({type:"invisible-msg",text:"Dummy sg"});
-            },5000)
+        .then((response) => {
+            console.log("Response Status:", response.status);
+            return response.json();
         })
-        .catch((err)=>{
-            console.log(err);
+        .then((data) => {
+            console.log("Response Data:", data);
+            setMessage({ type: "success", text: `${data.message} ${eatenQuantity}gm` });
+            setTimeout(() => {
+                setMessage({ type: "invisible-msg", text: "Dummy sg" });
+            }, 5000);
         })
-
+        .catch((err) => {
+            console.log("Fetch Error:", err);
+        });
     }
 
 

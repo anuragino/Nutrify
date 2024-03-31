@@ -2,8 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 60px 40px 20px 40px ;
+    padding: 60px 40px 80px 40px ;
     border-top: 2px solid black; 
+    width: 100%;
   }
 
   
@@ -68,7 +69,7 @@
 
   @media only screen and  (min-width: 500px) {
     footer{
-      padding: 60px 80px 20px 130px;
+      padding: 80px 130px 100px 130px;
     }
   }
   

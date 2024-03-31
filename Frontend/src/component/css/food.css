@@ -1,14 +1,18 @@
 /* Food */
  .food {
     width: 100%;
-    padding: 20px 0px;
+    padding: 10px 0px;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 20px;
+    row-gap: 10px;
   }
 
   .food-info{
     width: 100%;
+  }
+
+  .food-info>h3{
+    font-size: 1.1rem;
   }
   
   .nutrient-info{
@@ -37,7 +41,7 @@
     justify-content: center;
     align-items: center;
     width: 70%;
-    padding: 10px 10px;
+    padding: 8px;
   }
 
   .nut-img{
@@ -69,7 +73,7 @@
   /* responsive for laptop screen */
  @media only screen and (min-width: 500px) {
     .food{
-        column-gap: 4rem;
+        column-gap: 60px;
     }
     .food-img {
         width: 40%;
@@ -77,8 +81,7 @@
     }
     
     .food-info {
-        width: 51%;
-        padding: 0px 20px;
+        width: 50%;
     }
 
     .food-info>h3{

@@ -68,7 +68,7 @@ export default function Register(){
     return(
         <section className="container full">
             
-            <h1>Join Us For Fitness</h1>
+            <h1 >Join Us For Fitness</h1>
             <img src="/signup.png" alt="signup" className="log-img" />
             <form className="form" onSubmit={handleSubmit}>
 
