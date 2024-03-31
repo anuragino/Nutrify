@@ -10,7 +10,7 @@ export default function Read() {
         <div className="container read-container">
             <div className="read-intro">
                 <h1 className="read-name"> Nutrify Blogs!!</h1>
-                <h2>Here, You will find </h2>
+                <h3>Here, You will find </h3>
                 <h3>Everything related to Nurition</h3>
             </div>
 
@@ -82,10 +82,13 @@ export default function Read() {
                     </div> 
                 </div>
 
-                <button className="btn b-mar" onClick={()=>{
-                        window.open("https://www.health.com/", "_blank");
-                }}>Read More  <FontAwesomeIcon className="play-icon" icon={faPlay} style={{color:"white"}} />
-                </button>
+                <div className="re-b">
+                    <button className="btn b-mar" onClick={()=>{
+                            window.open("https://www.health.com/", "_blank");
+                    }}>Read More  <FontAwesomeIcon className="play-icon" icon={faPlay} style={{color:"white"}} />
+                    </button>
+                </div>
+                
                 
 
             </section>

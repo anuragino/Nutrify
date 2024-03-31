@@ -16,7 +16,7 @@
     align-items: flex-start;
     justify-content: initial;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 10px 20px 30px 20px;
   }
   
   .search-inp
@@ -89,7 +89,7 @@
   }
   .track-container{
     
-    padding: 30px 50px;
+    padding: 30px 120px;
   }
 
   .search-icon {

@@ -1,7 +1,7 @@
 /* Header */
 .nav{
     bottom: 0;
-    position: fixed;
+    position: absolute;
     left: 0;
     background-color: #FDFDFD;
     padding: 7px;
@@ -38,7 +38,8 @@
   }
 
   .nav-icon{
-    height: 1.46rem;
+    height: 23px;
+    width: 26px;
     padding: 10px;
   }
 

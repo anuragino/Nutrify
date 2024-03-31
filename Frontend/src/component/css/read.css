@@ -68,9 +68,14 @@
 }
 
 .read-text>h3{
+    margin-top: 10px;
     color: white;
-    margin-bottom: 10px;
     font-size: 1.2rem;
+}
+
+.read-text>h3:hover{
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .read-more{
@@ -121,8 +126,8 @@
     height: 29vh;
     display: flex;
     flex-direction: column;
-    background-color: #89B641; /*9e9bc8*/
-    border-radius: 2%;
+    background-color: #49B46D; /*9e9bc8*/
+    border-radius: 20px;
     width: 100%;
     box-shadow: 0 0 10px 0 #3f5024a6; 
     position: relative;
@@ -163,9 +168,12 @@
     .read-container{
       margin-top: 5rem;
     }
+    .read-intro{
+        padding:20px 110px;
+    }
 
     .read-blog{
-        padding: 40px 20px;
+        padding: 40px 120px;
     }
 
 
@@ -203,8 +211,8 @@
         margin-bottom: 25px;
     }
 
-    .banner{
-        padding: 30px 100px;
+    .banner {
+        padding: 30px 100px 30px 40px;
     }
 
     .read-text{

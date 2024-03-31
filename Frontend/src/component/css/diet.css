@@ -73,9 +73,9 @@
 
   .tol-cal{
     display: flex;
-    column-gap: 2rem;
+    column-gap: 5rem;
     align-items: center;
-    padding: 0 20px;
+    padding-left: 20px;
   }
 
   .nt {
@@ -93,6 +93,9 @@
   }
 
   @media only screen and (min-width: 500px) {
+    .diet-container{
+      padding: 30px 120px;
+    }
     .eat-food{
       padding-bottom: 50px;
     }
@@ -111,6 +114,7 @@
     }
 
     .tol-cal{
+      width: 40%;
       column-gap: 4rem;
     }
 
@@ -124,10 +128,6 @@
 
     .nutrient{
       text-align: center;
-    }
-    
-    .diet-container{
-      padding-bottom: 70px;
     }
 
     .item>h3{
