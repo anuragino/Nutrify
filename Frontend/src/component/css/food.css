@@ -16,17 +16,24 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .food-info>h3{
+    font-size: 1.3rem;
+  }
+
   .food-img {
+    display: flex;
     width: 100%;
     height: 250px;
-    border-radius: 5%;
     box-shadow: 0 0 10px 0 #3f5024a6;
+    justify-content: center;
+  }
+  .f-img{
+    width: 500px;
   }
   
   .food-img img {
-    width: 100%;
+    width: 500px;
     height: 100%;
-    border-radius: 5%;
     object-fit: cover;
   }
   
@@ -43,10 +50,6 @@
   .nut-img{
     width: 50px;
     height: 50px;
-  }
-
-  .track-sec>p{
-    margin-bottom: 10px;
   }
   
   .track-control{

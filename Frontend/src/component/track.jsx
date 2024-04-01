@@ -6,7 +6,7 @@ import "./css/track.css"
 import { useNavigate } from "react-router-dom";
 import TypingText from "./Animation/typingText";
 import{ FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass,faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass,faArrowLeft,faArrowLeftLong} from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Track(){
@@ -72,9 +72,12 @@ export default function Track(){
         
         <section className="container track-container" >
                 <div className="back-arrow">
-                    <FontAwesomeIcon className="bak-arr" icon={faArrowLeft} style={{color: "#49b46d",}}  onClick={()=>{
+                    <FontAwesomeIcon className="bak-arr" icon={faArrowLeftLong} style={{color: "#49b46d",}}  onClick={()=>{
+                        navigate("/home")
+                    }}/>
+                    {/* <FontAwesomeIcon className="bak-arr" icon={faArrowLeft} style={{color: "#49b46d",}}  onClick={()=>{
                     navigate("/home")
-                }} /> 
+                }} />  */}
                     <p>Add Food items</p>
                 </div>
               <div className="search">
