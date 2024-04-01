@@ -4,7 +4,7 @@
     padding: 10px 0px 50px 0px;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 10px;
+    row-gap: 20px;
   }
 
   .food-info{

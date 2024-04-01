@@ -8,10 +8,10 @@
     align-items: center;
     column-gap: 25%;
     width: 100%;
-    cursor: pointer;
   }
   .bak-arr{
     height: 1.5rem;
+    cursor: pointer;
   }
   .search {
     width: 100%;

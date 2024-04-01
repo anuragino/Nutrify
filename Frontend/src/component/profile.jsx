@@ -4,6 +4,7 @@ import{ FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket,faChevronRight,faFileLines,faGear,faUser } from "@fortawesome/free-solid-svg-icons";
 import Header from "./header";
 import "./css/profile.css";
+import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
     const loggedData = useContext(authContext);
@@ -15,6 +16,8 @@ export const Profile = () => {
         loggedData.setLoggedUser(null);
         navigate("/login");
     } 
+
+    const navigate = useNavigate();
 
     return (
         <div className='profile-container container'>
@@ -28,19 +31,23 @@ export const Profile = () => {
             
 
 
-            <div className='pro-att'>
+            <div className='pro-att' onClick={()=>{
+                        navigate("/home");
+            }}>
                 <FontAwesomeIcon className="att-icon" icon={faUser} />   
                 <p>Edit Profile</p>
                 <FontAwesomeIcon className="arrow" icon={faChevronRight} />
             </div>
 
-            <div className='pro-att'>
+            {/* <div className='pro-att'>
                 <FontAwesomeIcon className="att-icon" icon={faGear} />
                 <p>Settings</p>
                 <FontAwesomeIcon className="arrow" icon={faChevronRight} />
-            </div>
+            </div> */}
 
-            <div className='pro-att'>
+            <div className='pro-att'  onClick={()=>{
+                            window.open("https://github.com/anuragino/Nutrify", "_blank");
+            }}>
                 <FontAwesomeIcon className="att-icon" icon={faFileLines} />
                 <p>Terms & Privacy Policy</p>
                 <FontAwesomeIcon className="arrow" icon={faChevronRight} />
