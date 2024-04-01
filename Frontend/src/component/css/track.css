@@ -1,4 +1,18 @@
 /* track food */
+  .addFoot{
+    display: none;
+  }
+  .back-arrow{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    column-gap: 25%;
+    width: 100%;
+    cursor: pointer;
+  }
+  .bak-arr{
+    height: 1.5rem;
+  }
   .search {
     width: 100%;
     padding: 10px 0px;
@@ -13,6 +27,7 @@
 
   }
   .track-container{
+    height: 100vh;
     align-items: flex-start;
     justify-content: initial;
     flex-direction: column;
@@ -63,7 +78,7 @@
     align-items: center;
     justify-content: center;
     height: 70vh;
-
+    width: 100%;
   }
 
   .notF img{
@@ -81,6 +96,12 @@
 
 
 @media only screen and (min-width: 500px) {
+  .addFoot{
+    display: flex ;
+  }
+  .back-arrow{
+    display: none;
+  }
   .notF{
     width: 100%;
   }
