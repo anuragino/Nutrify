@@ -19,6 +19,7 @@
 body{
   background-color: var(--back-color);
   overflow: hidden;
+  user-select: none;
 }
 
 a{

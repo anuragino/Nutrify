@@ -42,7 +42,7 @@
     align-items: center;
     position: relative;
     box-shadow: 3px 0 2px 0 #87ff9fd3; 
-    border-radius: 10%;
+    border-radius: 20px;
     cursor: pointer;
 }
 

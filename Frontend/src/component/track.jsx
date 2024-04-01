@@ -15,10 +15,8 @@ export default function Track(){
     const [foodItems,setFoodItems] = useState([]);
     const [food,setFood] = useState(null);
 
-    const [visible,setVisible] = useState(false);
 
-    // placeholder animated text visiblity state
-    const [placeText,setPlaceText] = useState(true);
+    const [visible,setVisible] = useState(false);
 
     const navigate = useNavigate();
 
@@ -29,8 +27,16 @@ export default function Track(){
         setReset(false);
     };
 
+    const [searchValue, setSearchValue] = useState('');
+    function setName(item){
+        setSearchValue(item.name); // Set the search input value to item.name
+    };
+
     function searchFood(event){
-        // if you type smthg in search box
+        // If you type something in the search box
+        setSearchValue(event.target.value);
+
+        // fetch data from db only if there's a value
         if(event.target.value.length!==0){
             // fetch data from db
             fetch(`https://nutrify-api.vercel.app/foods/${event.target.value}`,{
@@ -58,50 +64,53 @@ export default function Track(){
         // when we clear the search name should gone.
         else{
             setFoodItems([]);
+            setSearchValue('');
         }
     }
 
     return (
         
-        <section className="container track-container">
-                <div className="back-arrow" onClick={()=>{
+        <section className="container track-container" >
+                <div className="back-arrow">
+                    <FontAwesomeIcon className="bak-arr" icon={faArrowLeft} style={{color: "#49b46d",}}  onClick={()=>{
                     navigate("/home")
-                }}>
-                    <FontAwesomeIcon className="bak-arr" icon={faArrowLeft} style={{color: "#49b46d",}} /> 
+                }} /> 
                     <p>Add Food items</p>
                 </div>
               <div className="search">
                     <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#49b46b",}} />
-                  <input type="search" className="search-inp"
+
+                    <input type="search" className="search-inp"
                     onClick={()=>{
                         setVisible(true);
-                        setPlaceText(false);
                     }}
                     onChange={searchFood} 
                     placeholder="Search for food..."
-                /> 
+                    value={searchValue}
+                    /> 
                 
 
                 {
                       // when you type smthg
                       visible&&foodItems.length!==0?
                       (
-                      <div className="search-results">
-                          {
-                              foodItems.map((item)=>{
-                                  return (
-                                    <div className="search-item">
+                        <div className="search-results">
+                            {
+                                foodItems.map((item)=>{
+                                    return (
+                                    <div className="search-item" key={item._id}>
                                         <p className="food-item" onClick={()=>{
-                                          setFood(item);
-                                          setVisible(false);
-                                          setReset(true);
-                                      }} key={item._id}> {item.name} </p>
+                                            setFood(item);
+                                            setVisible(false);
+                                            setReset(true);
+                                            setName(item);
+                                        }} > {item.name} </p>
                                     </div>   
-                                  )
-                              })
-                          }
+                                    )
+                                })
+                            }
 
-                      </div> 
+                        </div> 
                     ):null
                     // : (
                     //     <div className="notF">

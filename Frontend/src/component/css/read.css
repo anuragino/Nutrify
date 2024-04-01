@@ -249,4 +249,8 @@
         
         font-size: 1.5rem;
     }
+    .read-text>h3:hover{
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
 }
