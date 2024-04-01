@@ -75,8 +75,17 @@
         column-gap: 60px;
     }
     .food-img {
+        border-radius: 20px;
         width: 40%;
         height: 60vh;
+    }
+    .f-img{
+      width: 100%;
+    }
+
+    .food-img img {
+      width: 100%;
+      border-radius: 20px;
     }
     
     .food-info {
