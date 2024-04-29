@@ -22,3 +22,12 @@ Nutrify is a dynamic nutrition tracker  web application powered by MongoDB, Reac
 2. **Track Your Meals:**  Log your meals throughout the day to monitor your calorie, protein, and carbohydrate intake.
 3. **View Past Logs:**  Navigate to the history section to review your previous meal logs and track your progress over time.
 4.  **Read Nutrition Articles:**   Check out the "Articles" section to explore a variety of nutrition-related topics and stay informed.
+
+## 🚦 Running the Project
+
+1. **Clone the Repository:** `git clone https://github.com/anuragino/Nutrify`
+2. **Navigate to the Project Directory:** `cd Nutrify/Frontend` and `cd Nutrify/Backend`
+3. **Install Dependencies:** `npm install` in both Directory.
+4. Run in Backend `npm index.js` to start the server.
+5. Run in Frontend `npm run dev` to get the project started.
+
