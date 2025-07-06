@@ -1,6 +1,14 @@
 # 🍀 Nutrify
 Nutrify is a dynamic nutrition tracker  web application powered by MongoDB, React, and Express. Users can log meals, monitor daily intake of calories,protein, and carbohydrates, and view past logs. With a sleek UI, it offers effortless meal tracking on-the-go, enhancing user experience and promoting healthier lifestyles.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/aeaf41a5-a63c-4424-b06d-12c4ca1dad18" width="48%" />   
+  &nbsp;&nbsp;&nbsp; &nbsp;
+  <img src="https://github.com/user-attachments/assets/1929b3ad-55b6-4d12-8f9f-be03b6ec4af9" width="48%" />
+</p>
+
+
+
 ---
 ## 🛠️ Technologies Used
 
